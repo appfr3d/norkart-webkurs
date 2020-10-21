@@ -1,16 +1,18 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Header from "./components/Header";
 import MapboxGLMap from "./components/MapboxGLMap";
 
 const styles = {
-  overflow:'hidden'
-}
+  overflow: "hidden",
+};
 
 function App() {
+  const [mapStyle, setMapStyle] = useState("streets-v11");
+
   return (
     <div style={styles}>
-      <Header/>
-      <MapboxGLMap />
+      <Header mapStyle={mapStyle} setMapStyle={setMapStyle} />
+      <MapboxGLMap mapStyle={mapStyle} />
     </div>
   );
 }
