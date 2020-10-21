@@ -8,7 +8,7 @@ const styles = {
   position: "absolute",
 };
 
-const MapboxGLMap = ({ mapStyle }) => {
+const MapboxGLMap = ({ mapStyle, flyTo }) => {
   const [map, setMap] = useState(null);
   const mapContainer = useRef(null);
 
@@ -36,6 +36,12 @@ const MapboxGLMap = ({ mapStyle }) => {
       map.setStyle("mapbox://styles/mapbox/" + mapStyle);
     }
   }, [map, mapStyle]);
+
+  useEffect(() => {
+    if (map) {
+      map.flyTo({ center: flyTo, essential: true });
+    }
+  }, [flyTo]);
 
   return <div ref={(el) => (mapContainer.current = el)} style={styles} />;
 };

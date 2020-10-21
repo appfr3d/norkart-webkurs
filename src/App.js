@@ -8,11 +8,12 @@ const styles = {
 
 function App() {
   const [mapStyle, setMapStyle] = useState("streets-v11");
+  const [flyTo, setFlyTo] = useState([]);
 
   return (
     <div style={styles}>
-      <Header mapStyle={mapStyle} setMapStyle={setMapStyle} />
-      <MapboxGLMap mapStyle={mapStyle} />
+      <Header mapStyle={mapStyle} setMapStyle={setMapStyle} setFlyTo={setFlyTo} />
+      <MapboxGLMap mapStyle={mapStyle} flyTo={flyTo} />
     </div>
   );
 }

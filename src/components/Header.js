@@ -15,7 +15,7 @@ const LabelStyle = {
   color: "white",
 };
 
-const Header = ({ mapStyle, setMapStyle }) => {
+const Header = ({ mapStyle, setMapStyle, setFlyTo }) => {
   return (
     <div className="LayerShift">
       <div style={LabelStyle}>Change Style</div>
@@ -33,6 +33,13 @@ const Header = ({ mapStyle, setMapStyle }) => {
         <option value="outdoors-v11">Outdoors</option>
         <option value="satellite-v9">Satellite</option>
       </select>
+      <button
+        onClick={() => {
+          setFlyTo([10.4088 + (Math.random() - 0.5) * 10, 63.422 + (Math.random() - 0.5) * 10]);
+        }}
+      >
+        Fly to your next vacation place!
+      </button>
     </div>
   );
 };
