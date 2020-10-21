@@ -18,7 +18,7 @@ const LabelStyle = {
 const Header = ({ mapStyle, setMapStyle }) => {
   return (
     <div className="LayerShift">
-      <div style={LabelStyle}>Change Style</div>
+      <div style={LabelStyle}>Change Map Style</div>
       <select
         name="mapStyle"
         style={LayerSelect}
